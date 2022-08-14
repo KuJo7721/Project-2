@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Homework extends Model {}
 
-Project.init(
+Homework.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,19 +11,19 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    date_due: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
+    grade: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
@@ -40,8 +40,10 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'homework',
   }
 );
 
-module.exports = Project;
+module.exports = Homework;
+
+// Due date, Title, Description, Status, Grade
